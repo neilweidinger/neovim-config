@@ -14,3 +14,4 @@ augroup numbertoggle
 augroup END
 
 set wildmenu            " visual autocomplete for command menu
+syntax enable
