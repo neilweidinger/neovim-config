@@ -14,10 +14,10 @@ augroup numbertoggle
 augroup END
 
 set wildmenu            " visual autocomplete for command menu
-syntax enable
+syntax enable           " enable syntax highlighting
 
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-let mapleader = ","
+let mapleader = "," " set leader key to comma <,>
 nmap <leader>v :edit $MYVIMRC<CR>
 
 " remap to easily switch between tabs
