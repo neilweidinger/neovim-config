@@ -18,7 +18,7 @@ syntax enable
 
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 let mapleader = ","
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :edit $MYVIMRC<CR>
 
 " remap to easily switch between tabs
 nnoremap <C-j> :tabp<cr> 
