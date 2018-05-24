@@ -15,3 +15,11 @@ augroup END
 
 set wildmenu            " visual autocomplete for command menu
 syntax enable
+
+" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" remap to easily switch between tabs
+nnoremap <C-j> :tabp<cr> 
+nnoremap <C-k> :tabn<cr>
