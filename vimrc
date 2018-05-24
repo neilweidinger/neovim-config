@@ -9,7 +9,7 @@ set shiftwidth=4
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
 
-" function so that control e and y scroll by an eight of window height, not line by line
+" function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
     let height=winheight(0)
 
@@ -19,12 +19,15 @@ function! ScrollQuarter(move)
         let key="\<C-E>"
     endif
 
-    execute 'normal! ' . height/8 . key
+    execute 'normal! ' . height/14 . key
 endfunction
 
 " remapping necessary for above function
-nnoremap <silent> <C-y> :call ScrollQuarter('up')<CR>
+nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
 nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
+
+" control y now performs control u
+nnoremap <C-y> <C-u>
 
 " switches between relative and absolute numbering depending on mode
 augroup numbertoggle
