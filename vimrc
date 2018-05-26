@@ -13,11 +13,8 @@ call plug#end()
 " let g:airline_solarized_bg='dark'
 " set t_Co=256
 
-set number relativenumber
-set ruler
-
+" stuff for tabs
 set autoindent
-
 set expandtab
 set tabstop=4
 set softtabstop=4
@@ -25,6 +22,10 @@ set shiftwidth=4
 
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
+
+" set numbers on side and ruler
+set number relativenumber
+set ruler
 
 " function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
