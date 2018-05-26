@@ -3,12 +3,20 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" let g:AirlineTheme='papercolor'
+" let g:airline_powerline_fonts = 1
+" let g:airline_solarized_bg='dark'
+" set t_Co=256
+
 set number relativenumber
 set ruler
+
+set autoindent
 
 set expandtab
 set tabstop=4
