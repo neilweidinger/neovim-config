@@ -28,6 +28,9 @@ set shiftwidth=4
 " Backspace through anything in insert mode
 set backspace=indent,eol,start
 
+set incsearch " Show matches while seraching
+set hlsearch " Highlight search matches
+
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
 
