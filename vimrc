@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
+Plug 'flazz/vim-colorschemes'
+Plug 'felixhummel/setcolors.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -12,6 +14,9 @@ call plug#end()
 " let g:airline_powerline_fonts = 1
 " let g:airline_solarized_bg='dark'
 " set t_Co=256
+
+" set colorscheme/use :colors nameofscheme to quickly try out a different one
+colorscheme Monokai
 
 " stuff for tabs
 set autoindent
