@@ -20,6 +20,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Backspace through anything in insert mode
+set backspace=indent,eol,start
+
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
 
