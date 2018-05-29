@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug 'yggdroot/indentline'
+Plug 'justinmk/vim-syntax-extra'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
