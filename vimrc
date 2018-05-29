@@ -6,6 +6,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
+Plug 'yggdroot/indentline'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -17,6 +18,9 @@ call plug#end()
 
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
+
+" indent guides
+let g:indentLine_char = '|'
 
 " stuff for tabs
 set autoindent
