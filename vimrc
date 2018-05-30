@@ -2,20 +2,19 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
-Plug 'flazz/vim-colorschemes'
-Plug 'felixhummel/setcolors.vim'
-Plug 'yggdroot/indentline'
-Plug 'justinmk/vim-syntax-extra'
+Plug 'jiangmiao/auto-pairs' " automatically close brackets etc.
+Plug 'vim-airline/vim-airline' " airline status bar
+Plug 'flazz/vim-colorschemes' " colorschemes for vim
+Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
+Plug 'yggdroot/indentline' " show indent lines
+Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" let g:AirlineTheme='papercolor'
-" let g:airline_powerline_fonts = 1
-" let g:airline_solarized_bg='dark'
-" set t_Co=256
+" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+let mapleader = "," " set leader key to comma <,>
+nmap <leader>v :edit $MYVIMRC<CR>
 
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
@@ -72,10 +71,6 @@ augroup END
 
 set wildmenu            " visual autocomplete for command menu
 syntax enable           " enable syntax highlighting
-
-" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-let mapleader = "," " set leader key to comma <,>
-nmap <leader>v :edit $MYVIMRC<CR>
 
 " remap to easily switch between tabs
 nnoremap <C-j> :tabp<cr> 
