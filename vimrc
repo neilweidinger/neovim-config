@@ -8,6 +8,8 @@ Plug 'flazz/vim-colorschemes' " colorschemes for vim
 Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
 Plug 'yggdroot/indentline' " show indent lines
 Plug 'justinmk/vim-syntax-extra' " better highlighting for C
+Plug 'scrooloose/nerdtree' " NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -34,6 +36,9 @@ set backspace=indent,eol,start
 
 set incsearch " Show matches while seraching
 set hlsearch " Highlight search matches
+
+" allow switching and closing buffers without writing them to file first
+set hidden
 
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
@@ -73,5 +78,17 @@ set wildmenu            " visual autocomplete for command menu
 syntax enable           " enable syntax highlighting
 
 " remap to easily switch between tabs
-nnoremap <C-j> :tabp<cr> 
-nnoremap <C-k> :tabn<cr>
+nnoremap <C-j> :tabp<CR>
+nnoremap <C-k> :tabn<CR>
+
+" NERDTree Settings
+
+" toggle NERDTree
+nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
+" quickly find current file in NERDTree
+nnoremap <silent> <Leader>h :NERDTreeFind<CR>
+nnoremap <silent> <Leader><S-f> :NERDTreeFocus<CR>
+" automatically delete buffer of file that was just deleted using NERDTree
+let NERDTreeAutoDeleteBuffer = 1
+" show line numbers in NERDTree
+let NERDTreeShowLineNumbers = 1
