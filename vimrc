@@ -77,10 +77,12 @@ augroup END
 set wildmenu            " visual autocomplete for command menu
 syntax enable           " enable syntax highlighting
 
-" remap to easily switch between tabs
-nnoremap <C-j> :tabp<CR>
-nnoremap <C-k> :tabn<CR>
-"
+" Quick jumping between splits
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 " Move normally between wrapped lines
 nmap j gj
 nmap k gk
@@ -91,6 +93,7 @@ nmap k gk
 nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
 " quickly find current file in NERDTree
 nnoremap <silent> <Leader>h :NERDTreeFind<CR>
+" change focus back to NERDTree
 nnoremap <silent> <Leader><S-f> :NERDTreeFocus<CR>
 " automatically delete buffer of file that was just deleted using NERDTree
 let NERDTreeAutoDeleteBuffer = 1
