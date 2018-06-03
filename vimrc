@@ -40,6 +40,9 @@ set hlsearch " Highlight search matches
 " allow switching and closing buffers without writing them to file first
 set hidden
 
+" ignore case for searches
+set ignorecase
+
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
 
