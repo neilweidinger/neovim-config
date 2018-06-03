@@ -80,6 +80,10 @@ syntax enable           " enable syntax highlighting
 " remap to easily switch between tabs
 nnoremap <C-j> :tabp<CR>
 nnoremap <C-k> :tabn<CR>
+"
+" Move normally between wrapped lines
+nmap j gj
+nmap k gk
 
 " NERDTree Settings
 
