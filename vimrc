@@ -8,8 +8,9 @@ Plug 'flazz/vim-colorschemes' " colorschemes for vim
 Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
 Plug 'yggdroot/indentline' " show indent lines
 Plug 'justinmk/vim-syntax-extra' " better highlighting for C
-Plug 'scrooloose/nerdtree' " NERDTree
-Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
+" Plug 'scrooloose/nerdtree' " NERDTree
+" Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
+Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -93,12 +94,21 @@ nmap k gk
 " NERDTree Settings
 
 " toggle NERDTree
-nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
+" nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
 " quickly find current file in NERDTree
-nnoremap <silent> <Leader>h :NERDTreeFind<CR>
+" nnoremap <silent> <Leader>h :NERDTreeFind<CR>
 " change focus back to NERDTree
-nnoremap <silent> <Leader><S-f> :NERDTreeFocus<CR>
+" nnoremap <silent> <Leader><S-f> :NERDTreeFocus<CR>
 " automatically delete buffer of file that was just deleted using NERDTree
-let NERDTreeAutoDeleteBuffer = 1
+" let NERDTreeAutoDeleteBuffer = 1
 " show line numbers in NERDTree
-let NERDTreeShowLineNumbers = 1
+" let NERDTreeShowLineNumbers = 1
+
+" ranger.vim mappings
+map <leader>rr :RangerEdit<cr>
+map <leader>rv :RangerVSplit<cr>
+map <leader>rs :RangerSplit<cr>
+map <leader>rt :RangerTab<cr>
+map <leader>ri :RangerInsert<cr>
+map <leader>ra :RangerAppend<cr>
+map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
