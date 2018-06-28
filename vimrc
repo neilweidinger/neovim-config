@@ -91,6 +91,9 @@ map <C-l> <C-W>l
 nmap j gj
 nmap k gk
 
+" Press enter to clear highlighting for previous search
+nnoremap <CR> :noh<CR><CR>
+
 " NERDTree Settings
 
 " toggle NERDTree
