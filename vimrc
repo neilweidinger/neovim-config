@@ -51,6 +51,10 @@ set scrolloff=3
 set number relativenumber
 set ruler
 
+" open new split panes to right and bottom
+set splitbelow
+set splitright
+
 " function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
     let height=winheight(0)
