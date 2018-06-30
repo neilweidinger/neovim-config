@@ -99,6 +99,9 @@ nmap k gk
 " Press enter to clear highlighting for previous search
 nnoremap <CR> :noh<CR><CR>
 
+" to make consistent with <S-l>
+nmap zl zb
+
 " NERDTree Settings
 
 " toggle NERDTree
