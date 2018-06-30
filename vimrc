@@ -66,7 +66,7 @@ function! ScrollQuarter(move)
         let key="\<C-E>"
     endif
 
-    execute 'normal! ' . height/14 . key
+    execute 'normal! ' . height/6 . key
 endfunction
 
 " remapping necessary for above function
