@@ -11,6 +11,7 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 " Plug 'scrooloose/nerdtree' " NERDTree
 " Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
+Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
