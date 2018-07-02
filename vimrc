@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'jiangmiao/auto-pairs' " automatically close brackets etc.
 Plug 'vim-airline/vim-airline' " airline status bar
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes' " colorschemes for vim
 Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
 Plug 'yggdroot/indentline' " show indent lines
@@ -25,6 +26,9 @@ nmap <leader>sv :source $MYVIMRC<CR>
 
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
+
+" airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
+let g:airline_theme='simple'
 
 " indent guides for indentline plugin
 let g:indentLine_char = '|'
