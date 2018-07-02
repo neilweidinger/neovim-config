@@ -12,18 +12,19 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 " Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
+Plug 'kien/ctrlp.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-let mapleader = "," " set leader key to comma <,>
+let mapleader = " " " set leader key to comma <,>
 nmap <leader>v :edit $MYVIMRC<CR>
 
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
 
-" indent guides
+" indent guides for indentline plugin
 let g:indentLine_char = '|'
 
 " stuff for tabs
@@ -45,6 +46,8 @@ set hidden
 
 " ignore case for searches
 set ignorecase
+" when upper case character is typed in search, serach becomes case sensitive
+set smartcase
 
 " keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
@@ -56,6 +59,9 @@ set ruler
 " open new split panes to right and bottom
 set splitbelow
 set splitright
+
+" redraw only when we need to
+set lazyredraw
 
 " function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
@@ -100,8 +106,32 @@ nmap k gk
 " Press enter to clear highlighting for previous search
 nnoremap <CR> :noh<CR><CR>
 
-" to make consistent with <S-l>
+" to make consistent with L (moves cursor to bottom)
 nmap zl zb
+
+
+
+
+map <Leader> <Plug>(easymotion-prefix)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 0
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
+map t <Plug>(easymotion-tl)
+map T <Plug>(easymotion-Tl)
+
+map  <Leader>/ <Plug>(easymotion-sn)
+omap <Leader>/ <Plug>(easymotion-tn)
+
+
+
+
 
 " NERDTree Settings
 
