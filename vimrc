@@ -28,7 +28,7 @@ nmap <leader>sv :source $MYVIMRC<CR>
 colorscheme Monokai
 
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
-let g:airline_theme='simple'
+let g:airline_theme='luna'
 
 " indent guides for indentline plugin
 let g:indentLine_char = '|'
