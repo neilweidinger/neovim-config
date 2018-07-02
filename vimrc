@@ -26,9 +26,10 @@ nmap <leader>sv :source $MYVIMRC<CR>
 
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
-
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
 let g:airline_theme='luna'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " indent guides for indentline plugin
 let g:indentLine_char = '|'
@@ -104,6 +105,12 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Quick jumping between buffers
+nmap <C-i> :bp<CR>
+nmap <C-o> :bn<CR>
+" Quickly close buffer
+nmap <C-c> :bd<CR>
 
 " Move normally between wrapped lines
 nmap j gj
