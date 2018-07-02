@@ -18,8 +18,10 @@ Plug 'kien/ctrlp.vim'
 call plug#end()
 
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-let mapleader = " " " set leader key to comma <,>
+let mapleader = " " " set leader key to space
 nmap <leader>v :edit $MYVIMRC<CR>
+" reload vimrc
+nmap <leader>sv :source $MYVIMRC<CR>
 
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
