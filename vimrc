@@ -13,7 +13,6 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 " Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
-Plug 'kien/ctrlp.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -121,6 +120,8 @@ nnoremap <CR> :noh<CR><CR>
 
 " to make consistent with L (moves cursor to bottom)
 nmap zl zb
+
+
 
 
 
