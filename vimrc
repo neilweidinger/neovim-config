@@ -110,7 +110,7 @@ map <C-l> <C-W>l
 nmap <C-i> :bp<CR>
 nmap <C-o> :bn<CR>
 " Quickly jump to buffer [n]
-nmap <Leader>o :bn<space>
+nmap <Leader>o :b
 " Quickly close buffer
 nmap <Leader>c :bd<CR>
 
