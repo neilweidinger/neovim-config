@@ -107,8 +107,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Quick jumping between buffers
-nmap <C-i> :bp<CR>
-nmap <C-o> :bn<CR>
+nmap J :bp<CR>
+nmap K :bn<CR>
 " Quickly jump to buffer [n]
 nmap <Leader>o :b
 " Quickly close buffer
@@ -124,6 +124,8 @@ nnoremap <CR> :noh<CR><CR>
 " to make consistent with L (moves cursor to bottom)
 nmap zl zb
 
+" remap joining two lines since J is mapped to switching buffers above
+nnoremap <Leader>J J
 
 
 
