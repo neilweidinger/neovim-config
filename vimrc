@@ -29,6 +29,7 @@ colorscheme Monokai
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " indent guides for indentline plugin
 let g:indentLine_char = '|'
@@ -108,8 +109,10 @@ map <C-l> <C-W>l
 " Quick jumping between buffers
 nmap <C-i> :bp<CR>
 nmap <C-o> :bn<CR>
+" Quickly jump to buffer [n]
+nmap <Leader>o :bn<space>
 " Quickly close buffer
-nmap <C-c> :bd<CR>
+nmap <Leader>c :bd<CR>
 
 " Move normally between wrapped lines
 nmap j gj
