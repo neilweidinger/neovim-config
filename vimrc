@@ -128,13 +128,6 @@ nmap zl zb
 
 map <Leader> <Plug>(easymotion-prefix)
 
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 0
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
 map f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
 map t <Plug>(easymotion-tl)
