@@ -13,6 +13,7 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 " Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
+Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -27,8 +28,11 @@ nmap <leader>sv :source $MYVIMRC<CR>
 colorscheme Monokai
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
 let g:airline_theme='luna'
+" enable powerline arrows
 let g:airline_powerline_fonts = 1
+" show buffers in top tabline
 let g:airline#extensions#tabline#enabled = 1
+" show buffer numbers in top tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " indent guides for indentline plugin
