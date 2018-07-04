@@ -121,9 +121,6 @@ nmap k gk
 " Press enter to clear highlighting for previous search
 nnoremap <CR> :noh<CR><CR>
 
-" to make consistent with L (moves cursor to bottom)
-nmap zl zb
-
 " remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
 
