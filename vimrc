@@ -14,12 +14,14 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" set leader key to space
+let mapleader = " "
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-let mapleader = " " " set leader key to space
 nmap <leader>v :edit $MYVIMRC<CR>
 " reload vimrc
 nmap <leader>sv :source $MYVIMRC<CR>
@@ -27,7 +29,7 @@ nmap <leader>sv :source $MYVIMRC<CR>
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
-let g:airline_theme='luna'
+let g:airline_theme='luna_neil'
 " enable powerline arrows
 let g:airline_powerline_fonts = 1
 " show buffers in top tabline
@@ -130,15 +132,18 @@ nnoremap <Leader>J J
 
 
 
+" easymotion mappings
 
-
+" no need to press leader twice to activate easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
+" motions like f and t use easymotion by default and only work for current line
 map f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
 map t <Plug>(easymotion-tl)
 map T <Plug>(easymotion-Tl)
 
+" use leader / to use easymotion search
 map  <Leader>/ <Plug>(easymotion-sn)
 omap <Leader>/ <Plug>(easymotion-tn)
 
@@ -146,17 +151,17 @@ omap <Leader>/ <Plug>(easymotion-tn)
 
 
 
-" NERDTree Settings
-
-" toggle NERDTree
+"  NERDTree Settings
+" 
+"  toggle NERDTree
 " nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
-" quickly find current file in NERDTree
+"  quickly find current file in NERDTree
 " nnoremap <silent> <Leader>h :NERDTreeFind<CR>
-" change focus back to NERDTree
+"  change focus back to NERDTree
 " nnoremap <silent> <Leader><S-f> :NERDTreeFocus<CR>
-" automatically delete buffer of file that was just deleted using NERDTree
+"  automatically delete buffer of file that was just deleted using NERDTree
 " let NERDTreeAutoDeleteBuffer = 1
-" show line numbers in NERDTree
+"  show line numbers in NERDTree
 " let NERDTreeShowLineNumbers = 1
 
 " ranger.vim mappings
