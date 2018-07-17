@@ -15,6 +15,7 @@ Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
+Plug 'terryma/vim-smooth-scroll'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -77,21 +78,25 @@ set splitright
 set lazyredraw
 
 " function so that control e and y scroll by specified % of window height, not line by line
-function! ScrollQuarter(move)
-    let height=winheight(0)
-
-    if a:move == 'up'
-        let key="\<C-Y>"
-    else
-        let key="\<C-E>"
-    endif
-
-    execute 'normal! ' . height/6 . key
-endfunction
+" function! ScrollQuarter(move)
+    " let height=winheight(0)
+" 
+    " if a:move == 'up'
+        " let key="\<C-Y>"
+    " else
+        " let key="\<C-E>"
+    " endif
+" 
+    " execute 'normal! ' . height/6 . key
+" endfunction
 
 " remapping necessary for above function
-nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
-nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
+" nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
+" nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
+
+" using smooth scrolling!
+nnoremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
+nnoremap <silent> <C-e> :call smooth_scroll#down(&scroll, 0, 5)<CR>
 
 " control y now performs control u
 nnoremap <C-y> <C-u>
