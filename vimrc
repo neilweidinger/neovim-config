@@ -77,6 +77,9 @@ set splitright
 " redraw only when we need to
 set lazyredraw
 
+" use mouse to move cursor position and scroll
+set mouse=nirc
+
 " function so that control e and y scroll by specified % of window height, not line by line
 " function! ScrollQuarter(move)
     " let height=winheight(0)
