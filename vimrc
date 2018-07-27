@@ -1,3 +1,6 @@
+set nocompatible
+
+" ================ Plugins ====================
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
@@ -15,11 +18,14 @@ Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
-Plug 'terryma/vim-smooth-scroll'
+Plug 'terryma/vim-smooth-scroll' " for smooth scrolling
+Plug 'mattn/emmet-vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+
+" ================ Leader Key ====================
 " set leader key to space
 let mapleader = " "
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
@@ -27,6 +33,8 @@ nmap <leader>v :edit $MYVIMRC<CR>
 " reload vimrc
 nmap <leader>sv :source $MYVIMRC<CR>
 
+
+" ================ Colors and Themes ====================
 " set colorscheme/use :colors nameofscheme to quickly try out a different one
 colorscheme Monokai
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
@@ -38,6 +46,7 @@ let g:airline#extensions#tabline#enabled = 1
 " show buffer numbers in top tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
+" ================ General Config ====================
 " indent guides for indentline plugin
 let g:indentLine_char = '|'
 
@@ -98,8 +107,8 @@ set mouse=nirc
 " nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
 
 " using smooth scrolling!
-nnoremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
-nnoremap <silent> <C-e> :call smooth_scroll#down(&scroll, 0, 5)<CR>
+nnoremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 7)<CR>
+nnoremap <silent> <C-e> :call smooth_scroll#down(&scroll, 0, 7)<CR>
 
 " control y now performs control u
 nnoremap <C-y> <C-u>
