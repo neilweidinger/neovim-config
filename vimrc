@@ -17,7 +17,6 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
 Plug 'terryma/vim-smooth-scroll' " for smooth scrolling
 Plug 'mattn/emmet-vim'
 
