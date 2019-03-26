@@ -15,9 +15,11 @@ Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 " Plug 'scrooloose/nerdtree' " NERDTree
 " Plug 'Xuyuanp/nerdtree-git-plugin' " NERdTree git plugin
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
-Plug 'easymotion/vim-easymotion' " quicly jump around using quick hotkeys
+Plug 'easymotion/vim-easymotion' " quickly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
 Plug 'mattn/emmet-vim' " for html expansion, don't really use
+Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
+Plug 'majutsushi/tagbar' " tagbar to quickly jump around code
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -84,6 +86,9 @@ set splitright
 " redraw only when we need to
 set lazyredraw
 
+" so that Tagbar can detect filetype
+filetype on
+
 " use mouse to move cursor position and scroll
 set mouse=nirc
 
@@ -136,7 +141,7 @@ nmap j gj
 nmap k gk
 
 " Press enter to clear highlighting for previous search
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>
 
 " remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
@@ -158,8 +163,7 @@ map T <Plug>(easymotion-Tl)
 map  <Leader>/ <Plug>(easymotion-sn)
 omap <Leader>/ <Plug>(easymotion-tn)
 
-
-
+autocmd Filetype json let g:indentLine_enabled = 0
 
 
 "  NERDTree Settings
