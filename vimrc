@@ -86,6 +86,9 @@ set splitright
 " redraw only when we need to
 set lazyredraw
 
+" so that we can ESC out of insert mode quicker
+set timeoutlen=1000 ttimeoutlen=0
+
 " so that Tagbar can detect filetype
 filetype on
 
