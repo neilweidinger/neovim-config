@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
 Plug 'mattn/emmet-vim' " for html expansion, don't really use
 Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
 Plug 'majutsushi/tagbar' " tagbar to quickly jump around code
+Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
