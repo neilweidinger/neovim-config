@@ -23,6 +23,7 @@ Plug 'majutsushi/tagbar' " tagbar to quickly jump around code
 Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
 Plug 'hail2u/vim-css3-syntax' " CSS syntax highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
+Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
