@@ -155,7 +155,8 @@ nnoremap <CR> :noh<CR>
 " remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
 
-
+" toggle for tagbar
+nnoremap <silent> ;; :TagbarToggle<CR>
 
 " easymotion mappings
 
