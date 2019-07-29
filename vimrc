@@ -27,6 +27,7 @@ Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
 Plug 'ntpeters/vim-better-whitespace' " highlight and strip trailing whitespace
+Plug 'vim-scripts/a.vim' " open corresponding c/c++ header and source file
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
