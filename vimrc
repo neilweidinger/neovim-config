@@ -55,7 +55,9 @@ let g:vimtex_view_method="skim"
 set conceallevel=2
 let g:tex_conceal='abdmg'
 
-
+" enable highlighting and stripping whitespace on save by default
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 " ================ GENERAL CONFIG ====================
 
