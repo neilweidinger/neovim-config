@@ -10,7 +10,7 @@ Plug 'vim-airline/vim-airline' " airline status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes' " colorschemes for vim
 Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
-Plug 'yggdroot/indentline' " show indent lines
+" Plug 'yggdroot/indentline' " show indent lines
 Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quickly jump around using quick hotkeys
@@ -24,6 +24,8 @@ Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
 Plug 'ntpeters/vim-better-whitespace' " highlight and strip trailing whitespace
+Plug 'lervag/vimtex' " stuff for latex
+Plug 'KeitaNakamura/tex-conceal.vim' " latex conceal
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -37,18 +39,28 @@ colorscheme Monokai
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
 let g:airline_theme='luna_neil'
 " enable powerline arrows
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 " show buffers in top tabline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled=1
 " show buffer numbers in top tabline
-let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show=1
+
+
+
+
+
+let g:vimtex_view_method="skim"
+" let g:vimtex_view_general_viewer='/Applications/Skim.app/Contents/SharedSupport/displayline'
+" let g:vimtex_view_general_options='-r @line @pdf @tex'
+set conceallevel=2
+let g:tex_conceal='abdmg'
 
 
 
 " ================ GENERAL CONFIG ====================
 
 " indent guides for indentline plugin
-let g:indentLine_char = '|'
+let g:indentLine_char='|'
 
 " stuff for tabs
 set autoindent
@@ -113,7 +125,7 @@ syntax enable           " enable syntax highlighting
 " ================ MAPPINGS ====================
 
 " set leader key to space
-let mapleader = " "
+let mapleader=" "
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 nmap <leader>v :edit $MYVIMRC<CR>
 " reload vimrc
@@ -180,7 +192,7 @@ map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 
 " ================ OTHERS ====================
 
-autocmd Filetype json let g:indentLine_enabled = 0
+autocmd Filetype json let g:indentLine_enabled=0
 
 " function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
