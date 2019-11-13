@@ -23,7 +23,6 @@ Plug 'hail2u/vim-css3-syntax' " CSS syntax highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
-Plug 'ntpeters/vim-better-whitespace' " highlight and strip trailing whitespace
 Plug 'lervag/vimtex' " stuff for latex
 Plug 'KeitaNakamura/tex-conceal.vim' " latex conceal
 
