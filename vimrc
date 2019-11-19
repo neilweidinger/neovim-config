@@ -10,7 +10,6 @@ Plug 'vim-airline/vim-airline' " airline status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes' " colorschemes for vim
 Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
-" Plug 'yggdroot/indentline' " show indent lines
 Plug 'justinmk/vim-syntax-extra' " better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " quickly jump around using quick hotkeys
@@ -25,10 +24,10 @@ Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files w
 Plug 'tpope/vim-commentary' " Plugin for comments
 Plug 'lervag/vimtex' " stuff for latex
 Plug 'KeitaNakamura/tex-conceal.vim' " latex conceal
+Plug 'christoomey/vim-tmux-navigator'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
 
 
 " ================ COLORS AND THEMES ====================
@@ -45,8 +44,10 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 
+" ================ GENERAL CONFIG ====================
 
-
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 let g:vimtex_view_method="skim"
 " let g:vimtex_view_general_viewer='/Applications/Skim.app/Contents/SharedSupport/displayline'
@@ -54,14 +55,11 @@ let g:vimtex_view_method="skim"
 set conceallevel=2
 let g:tex_conceal='abdmg'
 
-" enable highlighting and stripping whitespace on save by default
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-
-" ================ GENERAL CONFIG ====================
-
-" indent guides for indentline plugin
-let g:indentLine_char='|'
+" idk what this really does but it speeds up vim (highlight matching pair was
+" slow)
+" let g:loaded_matchparen=20
+let g:matchparen_timeout = 2
+let g:matchparen_insert_timeout = 2
 
 " stuff for tabs
 set autoindent
