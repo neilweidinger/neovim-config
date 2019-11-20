@@ -5,26 +5,26 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'jiangmiao/auto-pairs' " automatically close brackets etc.
-Plug 'vim-airline/vim-airline' " airline status bar
-Plug 'vim-airline/vim-airline-themes'
-Plug 'flazz/vim-colorschemes' " colorschemes for vim
-Plug 'felixhummel/setcolors.vim' " make switching between colorschemes temporarily easy (use :colors colorschemename)
-Plug 'justinmk/vim-syntax-extra' " better highlighting for C
+Plug 'jiangmiao/auto-pairs' " Automatically close brackets etc.
+Plug 'vim-airline/vim-airline' " Airline status bar
+Plug 'vim-airline/vim-airline-themes' " Themes for airline
+Plug 'flazz/vim-colorschemes' " Colorschemes for vim
+Plug 'felixhummel/setcolors.vim' " Make switching between colorschemes temporarily easy (use :colors colorschemename)
+Plug 'justinmk/vim-syntax-extra' " Better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
-Plug 'easymotion/vim-easymotion' " quickly jump around using quick hotkeys
-Plug 'tpope/vim-surround' " quickly manipulate surrounding delimeters
+Plug 'easymotion/vim-easymotion' " Quickly jump around using quick hotkeys
+Plug 'tpope/vim-surround' " Quickly manipulate surrounding delimeters
 Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
-Plug 'majutsushi/tagbar' " tagbar to quickly jump around code
+Plug 'majutsushi/tagbar' " Tagbar to quickly jump around code
 Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
 Plug 'mxw/vim-jsx' " JSX syntax highlighting
 Plug 'hail2u/vim-css3-syntax' " CSS syntax highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
-Plug 'lervag/vimtex' " stuff for latex
-Plug 'KeitaNakamura/tex-conceal.vim' " latex conceal
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'lervag/vimtex' " Stuff for latex
+Plug 'KeitaNakamura/tex-conceal.vim' " Latex conceal
+Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when inside of vim
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
