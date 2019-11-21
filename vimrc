@@ -177,9 +177,9 @@ nmap <Leader>o :b
 " Quickly close buffer
 nmap <Leader>c :bd<CR>
 
-" Move normally between wrapped lines
-nmap j gj
-nmap k gk
+" Move by wrapped line unless a count is specified, in which case it behaves normally
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 
 " Press enter to clear highlighting for previous search
 nnoremap <CR> :noh<CR>
