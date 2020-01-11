@@ -2,7 +2,7 @@ set nocompatible
 
 " ================ PLUGINS ====================
 " Plugins will be downloaded under the specified directory.
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " Declare the list of plugins.
 Plug 'jiangmiao/auto-pairs' " Automatically close brackets etc.
