@@ -18,7 +18,7 @@ Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
 Plug 'majutsushi/tagbar' " Tagbar to quickly jump around code
 Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
 Plug 'mxw/vim-jsx' " JSX syntax highlighting
-Plug 'hail2u/vim-css3-syntax' " CSS syntax highlighting
+Plug 'norcalli/nvim-colorizer.lua' " color highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
@@ -28,7 +28,6 @@ Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when i
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
 
 " ================ COLORS AND THEMES ====================
 
@@ -108,6 +107,12 @@ filetype on
 
 " use mouse to move cursor position and scroll
 set mouse=nirc
+
+" needed for nvim-colorizer plugin
+set termguicolors
+
+" disable cursor styling
+set guicursor=
 
 " switches between relative and absolute numbering depending on mode
 augroup numbertoggle
