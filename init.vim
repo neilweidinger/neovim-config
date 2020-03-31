@@ -25,6 +25,8 @@ Plug 'tpope/vim-commentary' " Plugin for comments
 Plug 'lervag/vimtex' " Stuff for latex
 Plug 'KeitaNakamura/tex-conceal.vim' " Latex conceal
 Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when inside of vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
