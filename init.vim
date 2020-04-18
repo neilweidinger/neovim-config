@@ -8,8 +8,6 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'jiangmiao/auto-pairs' " Automatically close brackets etc.
 Plug 'vim-airline/vim-airline' " Airline status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for airline
-Plug 'flazz/vim-colorschemes' " Colorschemes for vim
-Plug 'felixhummel/setcolors.vim' " Make switching between colorschemes temporarily easy (use :colors colorschemename)
 Plug 'justinmk/vim-syntax-extra' " Better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " Quickly jump around using quick hotkeys
@@ -27,14 +25,19 @@ Plug 'KeitaNakamura/tex-conceal.vim' " Latex conceal
 Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when inside of vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
+Plug 'crusoexia/vim-monokai' " Monokai color theme
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " ================ COLORS AND THEMES ====================
 
-" set colorscheme/use :colors nameofscheme to quickly try out a different one
-colorscheme Monokai
+" syntax highlighting color theme
+colorscheme monokai
+" idk if these two lines are necessary, but just in case
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+
 " airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
 let g:airline_theme='luna_neil'
 " enable powerline arrows
