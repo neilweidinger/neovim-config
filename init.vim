@@ -16,14 +16,13 @@ Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
 Plug 'majutsushi/tagbar' " Tagbar to quickly jump around code
 Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
 Plug 'mxw/vim-jsx' " JSX syntax highlighting
-Plug 'norcalli/nvim-colorizer.lua' " color highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
 Plug 'lervag/vimtex' " Stuff for latex
 Plug 'KeitaNakamura/tex-conceal.vim' " Latex conceal
 Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when inside of vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'crusoexia/vim-monokai' " Monokai color theme
 
@@ -113,7 +112,7 @@ filetype on
 " use mouse to move cursor position and scroll
 set mouse=nirc
 
-" needed for nvim-colorizer plugin
+" for color stuff, idk not really sure what exactly this does tbh
 set termguicolors
 
 " disable cursor styling
