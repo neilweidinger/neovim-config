@@ -191,7 +191,7 @@ nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 
 " Press enter to clear highlighting for previous search
-nnoremap <CR> :noh<CR>
+nnoremap <Leader><CR> :noh<CR>
 
 " remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
