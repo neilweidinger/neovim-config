@@ -29,6 +29,7 @@ Plug 'crusoexia/vim-monokai' " Monokai color theme
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+
 " ================ COLORS AND THEMES ====================
 
 " syntax highlighting color theme
@@ -155,6 +156,7 @@ if v:version >= 700
     autocmd BufEnter * call AutoRestoreWinView()
 endif
 
+
 " ================ MAPPINGS ====================
 
 " set leader key to space
@@ -221,6 +223,51 @@ map <leader>ri :RangerInsert<cr>
 map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 
+
+" ================ COC.VIM Settings ====================
+
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-yaml',
+  \ 'coc-vimtex',
+  \ 'coc-sh',
+  \ 'coc-python',
+\ ]
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Show documentation for keyword under cursor in new window
+nnoremap <silent> U :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 
 
 " ================ OTHERS ====================
