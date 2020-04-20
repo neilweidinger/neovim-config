@@ -173,7 +173,7 @@ nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
 " control y now performs control u
 nnoremap <C-y> <C-u>
 
-" Quick jumping between splits
+" Quick jumping between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -183,8 +183,8 @@ map <C-l> <C-W>l
 nmap J :bp<CR>
 nmap K :bn<CR>
 
-" Quickly jump to buffer [n]
-nmap <Leader>o :b
+" Quickly go to buffer [n]
+nmap <Leader>o :ls<CR>:b<Space>
 " Quickly close buffer
 nmap <Leader>c :bd<CR>
 
