@@ -270,6 +270,9 @@ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 
+" Switch header/source file in C/C++
+nnoremap <silent> <space>h  :<C-u>CocCommand clangd.switchSourceHeader<cr>
+
 
 " ================ OTHERS ====================
 
