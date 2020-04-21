@@ -233,6 +233,7 @@ let g:coc_global_extensions = [
   \ 'coc-vimtex',
   \ 'coc-sh',
   \ 'coc-python',
+  \ 'coc-clangd',
 \ ]
 
 " Always show the signcolumn, otherwise it would shift the text each time
