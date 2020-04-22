@@ -130,6 +130,15 @@ set shortmess+=S
 
 " Allow vim to use system clipboard by default
 set clipboard+=unnamed
+"
+" Visual autocomplete for command menu
+set wildmenu
+
+" Popup menu transparency
+set pumblend=25
+
+" Enable syntax highlighting
+syntax enable
 
 " Switches between relative and absolute numbering depending on mode
 augroup numbertoggle
@@ -137,12 +146,6 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-
-" Visual autocomplete for command menu
-set wildmenu
-
-" Enable syntax highlighting
-syntax enable
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()
