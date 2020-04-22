@@ -25,6 +25,7 @@ Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when i
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'crusoexia/vim-monokai' " Monokai color theme
+Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
