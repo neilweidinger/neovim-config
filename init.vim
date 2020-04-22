@@ -26,6 +26,7 @@ Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'crusoexia/vim-monokai' " Monokai color theme
 Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
 Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
+Plug 'machakann/vim-highlightedyank' " Highlight yanked text
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
