@@ -13,7 +13,6 @@ Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " Quickly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " Quickly manipulate surrounding delimeters
 Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
-Plug 'majutsushi/tagbar' " Tagbar to quickly jump around code
 Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
 Plug 'mxw/vim-jsx' " JSX syntax highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
@@ -26,6 +25,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'crusoexia/vim-monokai' " Monokai color theme
 Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
+Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -199,9 +199,6 @@ nnoremap <Leader><CR> :noh<CR>
 " remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
 
-" toggle for tagbar
-nnoremap <silent> ;; :TagbarToggle<CR>
-
 " no need to press leader twice to activate easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
@@ -273,6 +270,35 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 
 " Switch header/source file in C/C++
 nnoremap <silent> <space>h  :<C-u>CocCommand clangd.switchSourceHeader<cr>
+
+
+" ================ VISTA ====================
+let g:vista_default_executive = 'ctags'
+let g:vista_executive_for = {
+  \ 'h': 'coc',
+  \ 'c': 'coc',
+  \ 'hpp': 'coc',
+  \ 'cpp': 'coc',
+  \ 'json': 'coc',
+  \ 'css': 'coc',
+  \ 'sh': 'coc',
+  \ }
+
+" Sidebar width
+let g:vista_sidebar_width = 45
+
+" Control speed of blinking when jumping to source line of tag
+let g:vista_blink = [2, 150]
+
+" Highlight entire line in Vista window since precise highlighting was
+" glitching out
+let g:vista_highlight_whole_line = 1
+
+" Toggle for Vista
+nnoremap <silent> ;; :Vista!!<CR>
+
+" Automatically close Vista window if source window is closed
+autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "normal! :q!\<CR>" | endif
 
 
 " ================ OTHERS ====================
