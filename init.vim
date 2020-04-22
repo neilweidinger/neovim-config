@@ -77,7 +77,7 @@ set shiftwidth=4
 " Backspace through anything in insert mode
 set backspace=indent,eol,start
 
-" Show matches while seraching
+" Show matches while searching
 set incsearch
 
 " Highlight search matches
@@ -88,6 +88,7 @@ set hidden
 
 " ignore case for searches
 set ignorecase
+
 " when upper case character is typed in search, serach becomes case sensitive
 set smartcase
 
@@ -125,6 +126,9 @@ set shortmess-=f
 
 " show 'hit BOTTOM/TOP' message when search wraps, at expense of [n/N] counter
 set shortmess+=S
+
+" allow vim to use system clipboard by default
+set clipboard+=unnamed
 
 " switches between relative and absolute numbering depending on mode
 augroup numbertoggle
