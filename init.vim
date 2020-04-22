@@ -33,19 +33,19 @@ call plug#end()
 
 " ================ COLORS AND THEMES ====================
 
-" syntax highlighting color theme
+" Syntax highlighting color theme
 colorscheme monokai
-" idk if these two lines are necessary, but just in case
+" Idk if these two lines are necessary, but just in case
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
-" airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
+" Airline theme, use :AirlineTheme nameoftheme to quicly try out a different one
 let g:airline_theme='luna_neil'
-" enable powerline arrows
+" Enable powerline arrows
 let g:airline_powerline_fonts=1
-" show buffers in top tabline
+" Show buffers in top tabline
 let g:airline#extensions#tabline#enabled=1
-" show buffer numbers in top tabline
+" Show buffer numbers in top tabline
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 
@@ -60,13 +60,13 @@ let g:vimtex_view_method="skim"
 set conceallevel=2
 let g:tex_conceal='abdmg'
 
-" idk what this really does but it speeds up vim (highlight matching pair was
+" Idk what this really does but it speeds up vim (highlight matching pair was
 " slow)
 " let g:loaded_matchparen=20
 let g:matchparen_timeout = 2
 let g:matchparen_insert_timeout = 2
 
-" stuff for tabs
+" Stuff for tabs
 set autoindent
 set smartindent
 set expandtab
@@ -83,62 +83,65 @@ set incsearch
 " Highlight search matches
 set hlsearch
 
-" allow switching and closing buffers without writing them to file first
+" Allow switching and closing buffers without writing them to file first
 set hidden
 
-" ignore case for searches
+" Ignore case for searches
 set ignorecase
 
-" when upper case character is typed in search, serach becomes case sensitive
+" When upper case character is typed in search, serach becomes case sensitive
 set smartcase
 
-" keeps three lines visible when scrolling and cursor is at edge of window
+" Keeps three lines visible when scrolling and cursor is at edge of window
 set scrolloff=3
 
-" set numbers on side and ruler
+" Set numbers on side and ruler
 set number relativenumber
 set ruler
 
-" open new split panes to right and bottom
+" Open new split panes to right and bottom
 set splitbelow
 set splitright
 
-" redraw only when we need to
+" Redraw only when we need to
 set lazyredraw
 
-" so that we can ESC out of insert mode quicker
+" So that we can ESC out of insert mode quicker
 set timeoutlen=1000 ttimeoutlen=0
 
-" so that Tagbar can detect filetype
+" So that Tagbar can detect filetype
 filetype on
 
-" use mouse to move cursor position and scroll
+" Use mouse to move cursor position and scroll
 set mouse=nirc
 
-" for color stuff, idk not really sure what exactly this does tbh
+" For color stuff, idk not really sure what exactly this does tbh
 set termguicolors
 
-" disable cursor styling
+" Disable cursor styling
 set guicursor=
 
-" use (file 3 of 5) instead of (3 of 5)
+" Use (file 3 of 5) instead of (3 of 5)
 set shortmess-=f
 
-" show 'hit BOTTOM/TOP' message when search wraps, at expense of [n/N] counter
+" Show 'hit BOTTOM/TOP' message when search wraps, at expense of [n/N] counter
 set shortmess+=S
 
-" allow vim to use system clipboard by default
+" Allow vim to use system clipboard by default
 set clipboard+=unnamed
 
-" switches between relative and absolute numbering depending on mode
+" Switches between relative and absolute numbering depending on mode
 augroup numbertoggle
     autocmd!
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-set wildmenu            " visual autocomplete for command menu
-syntax enable           " enable syntax highlighting
+" Visual autocomplete for command menu
+set wildmenu
+
+" Enable syntax highlighting
+syntax enable
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()
@@ -170,18 +173,18 @@ endif
 
 " ================ MAPPINGS ====================
 
-" set leader key to space
+" Set leader key to space
 let mapleader=" "
-" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+" Opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 nmap <leader>v :edit $MYVIMRC<CR>
-" reload vimrc
+" Reload vimrc
 nmap <leader>sv :source $MYVIMRC<CR>
 
-" remapping necessary for above function
+" Remapping necessary for above function
 nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
 nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
 
-" control y now performs control u
+" Control y now performs control u
 nnoremap <C-y> <C-u>
 
 " Quick jumping between windows
@@ -206,23 +209,23 @@ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 " Press enter to clear highlighting for previous search
 nnoremap <Leader><CR> :noh<CR>
 
-" remap joining two lines since J is mapped to switching buffers above
+" Remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
 
-" no need to press leader twice to activate easymotion
+" No need to press leader twice to activate easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
-" motions like f and t use easymotion by default and only work for current line
+" Motions like f and t use easymotion by default and only work for current line
 map f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
 map t <Plug>(easymotion-tl)
 map T <Plug>(easymotion-Tl)
 
-" use leader / to use easymotion search
+" Use leader / to use easymotion search
 map  <Leader>/ <Plug>(easymotion-sn)
 omap <Leader>/ <Plug>(easymotion-tn)
 
-" ranger.vim mappings
+" Ranger.vim mappings
 map <leader>rr :RangerEdit<cr>
 map <leader>rv :RangerVSplit<cr>
 map <leader>rs :RangerSplit<cr>
@@ -315,7 +318,7 @@ autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "norma
 
 autocmd Filetype json let g:indentLine_enabled=0
 
-" function so that control e and y scroll by specified % of window height, not line by line
+" Function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
     let height=winheight(0)
 
