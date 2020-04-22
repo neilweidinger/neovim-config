@@ -311,6 +311,13 @@ let g:vista_blink = [2, 150]
 " glitching out
 let g:vista_highlight_whole_line = 1
 
+" When hovering over a tag in Vista window automatically scroll to that tag in
+" the source window
+let g:vista_echo_cursor_strategy='scroll'
+
+" Icon indents
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
 " Toggle for Vista
 nnoremap <silent> ;; :Vista!!<CR>
 
