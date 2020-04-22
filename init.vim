@@ -120,6 +120,12 @@ set termguicolors
 " disable cursor styling
 set guicursor=
 
+" use (file 3 of 5) instead of (3 of 5)
+set shortmess-=f
+
+" show 'hit BOTTOM/TOP' message when search wraps, at expense of [n/N] counter
+set shortmess+=S
+
 " switches between relative and absolute numbering depending on mode
 augroup numbertoggle
     autocmd!
