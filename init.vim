@@ -203,6 +203,9 @@ nnoremap <silent> <C-Right> :vertical resize -3<CR>
 nnoremap <silent> <C-Up> :resize +3<CR>
 nnoremap <silent> <C-Down> :resize -3<CR>
 
+" Make separator between vertical splits solid line (space character)
+set fillchars+=vert:\ 
+
 " Quick jumping between buffers
 nmap <silent> J :bp<CR>
 nmap <silent> K :bn<CR>
