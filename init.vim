@@ -341,6 +341,9 @@ autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "norma
 " Quickly go to buffer [n]
 nmap <Leader>o :Buffers<CR>
 
+" Exit out of fzf buffer faster when using the escape key
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+
 
 " ================ OTHERS ====================
 
