@@ -1,6 +1,7 @@
 set nocompatible
 
 " ================ PLUGINS ====================
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 
@@ -27,6 +28,8 @@ Plug 'crusoexia/vim-monokai' " Monokai color theme
 Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
 Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
 Plug 'machakann/vim-highlightedyank' " Highlight yanked text
+Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
+Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -210,8 +213,6 @@ set fillchars+=vert:\
 nmap <silent> J :bp<CR>
 nmap <silent> K :bn<CR>
 
-" Quickly go to buffer [n]
-nmap <Leader>o :ls<CR>:b<Space>
 " Quickly close buffer
 nmap <Leader>c :bd<CR>
 
@@ -299,6 +300,7 @@ nnoremap <silent> <space>h  :<C-u>CocCommand clangd.switchSourceHeader<cr>
 
 
 " ================ VISTA ====================
+
 let g:vista_default_executive = 'ctags'
 let g:vista_executive_for = {
   \ 'h': 'coc',
@@ -332,6 +334,12 @@ nnoremap <silent> ;; :Vista!!<CR>
 
 " Automatically close Vista window if source window is closed
 autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "normal! :q!\<CR>" | endif
+
+
+" ================ FZF.VIM ====================
+
+" Quickly go to buffer [n]
+nmap <Leader>o :Buffers<CR>
 
 
 " ================ OTHERS ====================
