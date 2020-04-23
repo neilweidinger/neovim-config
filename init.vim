@@ -197,6 +197,12 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+" Quickly resize windows
+nnoremap <silent> <C-Left> :vertical resize +3<CR>
+nnoremap <silent> <C-Right> :vertical resize -3<CR>
+nnoremap <silent> <C-Up> :resize +3<CR>
+nnoremap <silent> <C-Down> :resize -3<CR>
+
 " Quick jumping between buffers
 nmap <silent> J :bp<CR>
 nmap <silent> K :bn<CR>
