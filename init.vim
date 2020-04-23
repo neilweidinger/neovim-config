@@ -192,14 +192,14 @@ nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
 nnoremap <C-y> <C-u>
 
 " Quick jumping between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 " Quick jumping between buffers
-nmap J :bp<CR>
-nmap K :bn<CR>
+nmap <silent> J :bp<CR>
+nmap <silent> K :bn<CR>
 
 " Quickly go to buffer [n]
 nmap <Leader>o :ls<CR>:b<Space>
@@ -207,11 +207,11 @@ nmap <Leader>o :ls<CR>:b<Space>
 nmap <Leader>c :bd<CR>
 
 " Move by wrapped line unless a count is specified, in which case it behaves normally
-nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+nnoremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 
 " Press enter to clear highlighting for previous search
-nnoremap <Leader><CR> :noh<CR>
+nnoremap <silent> <Leader><CR> :noh<CR>
 
 " Remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
