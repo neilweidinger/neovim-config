@@ -338,8 +338,14 @@ autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "norma
 
 " ================ FZF.VIM ====================
 
+" Quickly find a file in the directory tree
+nmap <C-p> :Files<CR>
+
 " Quickly go to buffer [n]
 nmap <Leader>o :Buffers<CR>
+
+" Quickly search through help pages
+nmap <Leader>H :Helptags<CR>
 
 " Exit out of fzf buffer faster when using the escape key
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
