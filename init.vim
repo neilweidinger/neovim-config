@@ -347,8 +347,19 @@ nmap <Leader>o :Buffers<CR>
 " Quickly search through help pages
 nmap <Leader>H :Helptags<CR>
 
+" Quickly grep through files in directory tree
+nmap <Leader>g :Rg<CR>
+
 " Exit out of fzf buffer faster when using the escape key
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+
+" Key bindings to open fzf result in horizontal or vertical split
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Make fzf pop up in a window
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 
 
 " ================ OTHERS ====================
