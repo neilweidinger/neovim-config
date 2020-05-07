@@ -140,6 +140,9 @@ set wildmenu
 " Popup menu transparency
 set pumblend=25
 
+" Treat dash separeted words as a text object
+set iskeyword+=-
+
 " Enable syntax highlighting
 syntax enable
 
