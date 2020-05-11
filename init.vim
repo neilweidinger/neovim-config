@@ -217,7 +217,7 @@ nmap <silent> J :bp<CR>
 nmap <silent> K :bn<CR>
 
 " Quickly close buffer
-nmap <Leader>c :bd<CR>
+nmap <silent> <Leader>c :bd<CR>
 
 " Move by wrapped line unless a count is specified, in which case it behaves normally
 nnoremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
