@@ -301,6 +301,9 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Switch header/source file in C/C++
 nnoremap <silent> <space>h  :<C-u>CocCommand clangd.switchSourceHeader<cr>
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
 
 " ================ VISTA ====================
 
