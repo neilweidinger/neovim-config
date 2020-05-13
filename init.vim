@@ -141,7 +141,7 @@ set wildmenu
 set pumblend=25
 
 " Treat dash separeted words as a text object
-set iskeyword+=-
+autocmd FileType tex set iskeyword+=-
 
 " Enable syntax highlighting
 syntax enable
