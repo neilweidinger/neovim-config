@@ -4,6 +4,7 @@ set nocompatible
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
+" call plug#begin('.local/nvim/plugged')
 
 " Declare the list of plugins.
 Plug 'jiangmiao/auto-pairs' " Automatically close brackets etc.
@@ -22,13 +23,13 @@ Plug 'tpope/vim-commentary' " Plugin for comments
 Plug 'lervag/vimtex' " Stuff for latex
 Plug 'KeitaNakamura/tex-conceal.vim' " Latex conceal
 Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when inside of vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'crusoexia/vim-monokai' " Monokai color theme
-Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
-Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
+" Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
+" Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
 Plug 'machakann/vim-highlightedyank' " Highlight yanked text
-Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 Plug 'cespare/vim-toml' " toml syntax highlighting
 Plug 'mbbill/undotree' " Undo tree viewer
@@ -141,9 +142,6 @@ set wildmenu
 
 " Popup menu transparency
 set pumblend=25
-
-" Live substitution with preview window
-set inccommand=split
 
 " Treat dash separeted words as a text object
 autocmd FileType tex set iskeyword+=-
@@ -269,99 +267,6 @@ map <leader>rt :RangerTab<cr>
 map <leader>ri :RangerInsert<cr>
 map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
-
-
-" ================ COC.VIM Settings ====================
-
-let g:coc_global_extensions = [
-  \ 'coc-css',
-  \ 'coc-json',
-  \ 'coc-yaml',
-  \ 'coc-vimtex',
-  \ 'coc-sh',
-  \ 'coc-python',
-  \ 'coc-clangd',
-  \ 'coc-rust-analyzer',
-\ ]
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Show documentation for keyword under cursor in new window
-nnoremap <silent> U :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-
-" Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-
-" Switch header/source file in C/C++
-nnoremap <silent> <space>h  :<C-u>CocCommand clangd.switchSourceHeader<cr>
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-
-" ================ VISTA ====================
-
-let g:vista_default_executive = 'ctags'
-let g:vista_executive_for = {
-  \ 'h': 'coc',
-  \ 'c': 'coc',
-  \ 'hpp': 'coc',
-  \ 'cpp': 'coc',
-  \ 'json': 'coc',
-  \ 'css': 'coc',
-  \ 'sh': 'coc',
-  \ }
-
-" Sidebar width
-let g:vista_sidebar_width = 45
-
-" Control speed of blinking when jumping to source line of tag
-let g:vista_blink = [2, 150]
-
-" Highlight entire line in Vista window since precise highlighting was
-" glitching out
-let g:vista_highlight_whole_line = 1
-
-" When hovering over a tag in Vista window automatically scroll to that tag in
-" the source window
-let g:vista_echo_cursor_strategy='scroll'
-
-" Icon indents
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-
-" Toggle for Vista
-nnoremap <silent> ;; :Vista!!<CR>
-
-" Automatically close Vista window if source window is closed
-autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "normal! :q!\<CR>" | endif
 
 
 " ================ FZF.VIM ====================
