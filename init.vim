@@ -180,6 +180,9 @@ if v:version >= 700
     autocmd BufEnter * call AutoRestoreWinView()
 endif
 
+" Make vim recognize .conf files as the config FileType
+autocmd BufEnter,BufRead *.conf setf config
+
 
 " ================ MAPPINGS ====================
 
