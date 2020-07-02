@@ -30,6 +30,7 @@ Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
 Plug 'machakann/vim-highlightedyank' " Highlight yanked text
 Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
 Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
+Plug 'cespare/vim-toml' " toml syntax highlighting
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
