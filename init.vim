@@ -233,6 +233,9 @@ nnoremap <silent> <Leader><CR> :noh<CR>
 " Remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
 
+" Quickly switch between current and previous buffers
+nnoremap <Leader><Leader> <c-^>
+
 " No need to press leader twice to activate easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
