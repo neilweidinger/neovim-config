@@ -184,6 +184,17 @@ endif
 " Make vim recognize .conf files as the config FileType
 autocmd BufEnter,BufRead *.conf setf config
 
+" Persistent undo (undo history is preserved after quitting vim and reopening)
+let vimDir = '$HOME/.config/nvim'
+let &runtimepath.=','.vimDir
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
 
 " ================ MAPPINGS ====================
 
