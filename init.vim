@@ -31,6 +31,7 @@ Plug 'machakann/vim-highlightedyank' " Highlight yanked text
 Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
 Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 Plug 'cespare/vim-toml' " toml syntax highlighting
+Plug 'mbbill/undotree' " Undo tree viewer
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -246,6 +247,9 @@ nnoremap <Leader>J J
 
 " Quickly switch between current and previous buffers
 nnoremap <Leader><Leader> <c-^>
+
+" Toggle undo tree viewer
+nnoremap <Leader>u :UndotreeToggle<CR>
 
 " No need to press leader twice to activate easymotion
 map <Leader> <Plug>(easymotion-prefix)
