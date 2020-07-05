@@ -250,6 +250,8 @@ nnoremap <Leader><Leader> <c-^>
 
 " Toggle undo tree viewer
 nnoremap <Leader>u :UndotreeToggle<CR>
+" Automatically switch focus to undo tree viewer when opened
+let g:undotree_SetFocusWhenToggle = 1
 
 " No need to press leader twice to activate easymotion
 map <Leader> <Plug>(easymotion-prefix)
