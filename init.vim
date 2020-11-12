@@ -142,6 +142,9 @@ set wildmenu
 " Popup menu transparency
 set pumblend=25
 
+" Live substitution with preview window
+set inccommand=split
+
 " Treat dash separeted words as a text object
 autocmd FileType tex set iskeyword+=-
 
