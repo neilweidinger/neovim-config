@@ -366,8 +366,11 @@ autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "norma
 
 " ================ FZF.VIM ====================
 
-" Quickly find a file in the directory tree
-nmap <C-p> :Files<CR>
+" Quickly find files tracked by git in the directory tree
+nmap <C-p> :GFiles<CR>
+"
+" Quickly find all files (including ones not tracked by git) in the directory tree
+nmap <C-[> :Files<CR>
 
 " Quickly go to buffer [n]
 nmap <Leader>o :Buffers<CR>
