@@ -370,7 +370,7 @@ autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "norma
 nmap <C-p> :GFiles<CR>
 "
 " Quickly find all files (including ones not tracked by git) in the directory tree
-nmap <C-[> :Files<CR>
+nmap <Leader>p :Files<CR>
 
 " Quickly go to buffer [n]
 nmap <Leader>o :Buffers<CR>
