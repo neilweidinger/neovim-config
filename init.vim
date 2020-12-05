@@ -32,6 +32,7 @@ Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
 Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 Plug 'cespare/vim-toml' " toml syntax highlighting
 Plug 'mbbill/undotree' " Undo tree viewer
+Plug 'tpope/vim-obsession' " Automatically save vim sessions so that tmux can restore them when restarting
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -53,6 +54,16 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 " Show buffer numbers in top tabline
 let g:airline#extensions#tabline#buffer_nr_show=1
+" Disable airline whitespace extension
+let g:airline#extensions#whitespace#enabled = 0
+" Disable default airline obsession integration (indicator wasn't in desired section)
+let g:airline#extensions#obsession#enabled = 0
+" Add ObsessionStatus to airline status manually
+" AirlineInit stuff: https://github.com/vim-airline/vim-airline/issues/777#issuecomment-627520759
+function! AirlineInit()
+    let g:airline_section_c = '%<%{ObsessionStatus(''TRACKED'', '''')} %f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#%#__accent_bold#%{airline#util#wrap(airline#extensions#coc#get_status(),0)}%#__restore__#'
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 
 " ================ GENERAL CONFIG ====================
