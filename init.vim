@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 Plug 'cespare/vim-toml' " toml syntax highlighting
 Plug 'mbbill/undotree' " Undo tree viewer
 Plug 'tpope/vim-obsession' " Automatically save vim sessions so that tmux can restore them when restarting
+Plug 'ryanoasis/vim-devicons' " Icons for tabline, always load this plugin last
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
