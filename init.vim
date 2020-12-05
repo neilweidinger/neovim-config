@@ -77,6 +77,7 @@ let g:vimtex_view_method="skim"
 " let g:vimtex_view_general_options='-r @line @pdf @tex'
 set conceallevel=2
 let g:tex_conceal='abdmg'
+let g:tex_flavor = 'latex'
 
 " Idk what this really does but it speeds up vim (highlight matching pair was
 " slow)
