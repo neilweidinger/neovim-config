@@ -332,13 +332,16 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 
 " Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
 
 " Switch header/source file in C/C++
-nnoremap <silent> <space>h  :<C-u>CocCommand clangd.switchSourceHeader<cr>
+nnoremap <silent> <space>h :<C-u>CocCommand clangd.switchSourceHeader<cr>
+
+" Toggle rust-analyzer inlay hints
+nnoremap <silent> <space>i :<C-u>CocCommand rust-analyzer.toggleInlayHints<cr>
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
