@@ -214,10 +214,6 @@ nmap <leader>v :edit $MYVIMRC<CR>
 " Reload vimrc
 nmap <leader>sv :source $MYVIMRC<CR>
 
-" Only write when the buffer has been modified, to preserve file metadata
-nnoremap <silent> :w :update
-nnoremap <silent> :wq :xit
-
 " Remapping necessary for above function
 nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
 nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
