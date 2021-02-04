@@ -1,5 +1,8 @@
 {
     "python.jediEnabled": false,
     "clangd.semanticHighlighting": true,
-    "clangd.fallbackFlags": ["-std=c++17"]
+    "clangd.fallbackFlags": ["-std=c++17"],
+    "coc.source.around.firstMatch": false,
+    "coc.source.buffer.firstMatch": false,
+    "coc.preferences.colorSupport": true
 }

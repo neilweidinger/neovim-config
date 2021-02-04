@@ -107,6 +107,12 @@ set hidden
 " Ignore case for searches
 set ignorecase
 
+" Infer case when doing keyword completion
+set infercase
+
+" Ignore case when completing file names and directories
+set wildignorecase
+
 " When upper case character is typed in search, serach becomes case sensitive
 set smartcase
 
