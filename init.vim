@@ -23,7 +23,6 @@ Plug 'lervag/vimtex' " Stuff for latex
 Plug 'KeitaNakamura/tex-conceal.vim' " Latex conceal
 Plug 'christoomey/vim-tmux-navigator' " Easy switching between tmux panes when inside of vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
-Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'crusoexia/vim-monokai' " Monokai color theme
 Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
 Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
@@ -383,7 +382,7 @@ autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "norma
 " ================ FZF.VIM ====================
 
 " Quickly find files tracked by git in the directory tree
-nmap <C-p> :GFiles<CR>
+nmap <C-p> :GFiles --recurse-submodules<CR>
 "
 " Quickly find all files (including ones not tracked by git) in the directory tree
 nmap <Leader>p :Files<CR>
