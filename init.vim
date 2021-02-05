@@ -32,7 +32,9 @@ Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 Plug 'cespare/vim-toml' " toml syntax highlighting
 Plug 'mbbill/undotree' " Undo tree viewer
 Plug 'tpope/vim-obsession' " Automatically save vim sessions so that tmux can restore them when restarting
-Plug 'ryanoasis/vim-devicons' " Icons for tabline, always load this plugin last
+Plug 'rust-lang/rust.vim'
+" Icons for tabline, ALWAYS LOAD THIS PLUGIN LAST
+Plug 'ryanoasis/vim-devicons'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -84,6 +86,9 @@ let g:tex_flavor = 'latex'
 let g:matchparen_timeout = 2
 let g:matchparen_insert_timeout = 2
 
+" Enable auto rustfmt on save
+let g:rustfmt_autosave = 1
+
 " Stuff for tabs
 set autoindent
 set smartindent
@@ -133,8 +138,9 @@ set lazyredraw
 " So that we can ESC out of insert mode quicker
 set timeoutlen=1000 ttimeoutlen=0
 
-" So that Tagbar can detect filetype
-filetype on
+" So that Tagbar can detect filetype (on)
+" Required for rust.vim (plugin indent)
+filetype plugin indent on
 
 " Use mouse to move cursor position and scroll
 set mouse=nirc
