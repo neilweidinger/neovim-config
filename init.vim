@@ -1,4 +1,5 @@
 set nocompatible
+let g:polyglot_disabled = [] " Necessary to put this at very top for some reason (https://github.com/sheerun/vim-polyglot#troubleshooting)
 
 " ================ PLUGINS ====================
 
@@ -9,13 +10,9 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'jiangmiao/auto-pairs' " Automatically close brackets etc.
 Plug 'vim-airline/vim-airline' " Airline status bar
 Plug 'vim-airline/vim-airline-themes' " Themes for airline
-Plug 'justinmk/vim-syntax-extra' " Better highlighting for C
 Plug 'rafaqz/ranger.vim' " Use ranger as a file explorer within vim
 Plug 'easymotion/vim-easymotion' " Quickly jump around using quick hotkeys
 Plug 'tpope/vim-surround' " Quickly manipulate surrounding delimeters
-Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and formatting
-Plug 'pangloss/vim-javascript' " JavaScript syntax highlighting
-Plug 'mxw/vim-jsx' " JSX syntax highlighting
 Plug 'ap/vim-css-color' " Preview CSS colors in source code
 Plug 'EinfachToll/DidYouMean' " Prevents vim from opening up fresh empty files when there are multiple files w similar names
 Plug 'tpope/vim-commentary' " Plugin for comments
@@ -29,10 +26,10 @@ Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
 Plug 'machakann/vim-highlightedyank' " Highlight yanked text
 Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
 Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
-Plug 'cespare/vim-toml' " toml syntax highlighting
 Plug 'mbbill/undotree' " Undo tree viewer
 Plug 'tpope/vim-obsession' " Automatically save vim sessions so that tmux can restore them when restarting
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim' " Really only used to auto run rustfmt on buffer save
+Plug 'sheerun/vim-polyglot'
 " Icons for tabline, ALWAYS LOAD THIS PLUGIN LAST
 Plug 'ryanoasis/vim-devicons'
 
@@ -88,6 +85,9 @@ let g:matchparen_insert_timeout = 2
 
 " Enable auto rustfmt on save
 let g:rustfmt_autosave = 1
+
+" Don't enable vim-sensible shipped with polyglot
+let g:polyglot_disabled = ['sensible']
 
 " Stuff for tabs
 set autoindent
@@ -169,6 +169,9 @@ set pumblend=25
 " Live substitution with preview window
 set inccommand=split
 
+" Persistent undo (undo history is preserved after quitting vim and reopening)
+set undofile
+
 " Treat dash separeted words as a text object
 autocmd FileType tex set iskeyword+=-
 
@@ -211,9 +214,6 @@ endif
 
 " Make vim recognize .conf files as the config FileType
 autocmd BufEnter,BufRead *.conf setf config
-
-" Persistent undo (undo history is preserved after quitting vim and reopening)
-set undofile
 
 
 " ================ MAPPINGS ====================
@@ -432,8 +432,6 @@ command! -bang -nargs=* Rg
 
 
 " ================ OTHERS ====================
-
-autocmd Filetype json let g:indentLine_enabled=0
 
 " Function so that control e and y scroll by specified % of window height, not line by line
 function! ScrollQuarter(move)
