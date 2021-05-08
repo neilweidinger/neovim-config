@@ -151,12 +151,6 @@ set termguicolors
 " Disable cursor styling
 set guicursor=
 
-" Use (file 3 of 5) instead of (3 of 5)
-set shortmess-=f
-
-" Show 'hit BOTTOM/TOP' message when search wraps, at expense of [n/N] counter
-set shortmess+=S
-
 " Allow vim to use system clipboard by default
 set clipboard+=unnamed
 "
@@ -245,7 +239,7 @@ nnoremap <silent> <C-Up> :resize +3<CR>
 nnoremap <silent> <C-Down> :resize -3<CR>
 
 " Make separator between vertical splits solid line (space character)
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " Quick jumping between buffers
 nmap <silent> J :bp<CR>
@@ -266,6 +260,9 @@ nnoremap <Leader>J J
 
 " Quickly switch between current and previous buffers
 nnoremap <Leader><Leader> <c-^>
+
+" Strip trailing whitespace
+nnoremap <Leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Toggle undo tree viewer
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -316,8 +313,7 @@ set signcolumn=yes
 " delays and poor user experience.
 set updatetime=300
 
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
+set shortmess=lnxoOtTFA
 
 " Show documentation for keyword under cursor in new window
 nnoremap <silent> U :call <SID>show_documentation()<CR>
