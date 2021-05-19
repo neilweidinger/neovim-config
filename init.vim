@@ -39,6 +39,22 @@ call plug#end()
 
 " ================ COLORS AND THEMES ====================
 
+" Set up custom highlight colors for misspelled words
+" https://vi.stackexchange.com/a/18298
+" Try undercurl in alacritty instead when supported: https://github.com/alacritty/alacritty/pull/4660
+augroup MyHighlightColors
+    autocmd!
+    autocmd ColorScheme *
+        \ highlight SpellBad
+        \   gui=bold guifg=#ffffff guibg=#e73c50 " white foreground, red background
+    autocmd ColorScheme *
+        \ highlight SpellLocal
+        \   gui=bold guifg=#ffffff guibg=#d9b92e " white foreground, gold background
+    autocmd ColorScheme *
+        \ highlight SpellRare
+        \   gui=bold guifg=#ffffff guibg=#1ddb1d " white foreground, green background
+augroup END
+
 " Syntax highlighting color theme
 colorscheme monokai
 " Idk if these two lines are necessary, but just in case
@@ -168,6 +184,8 @@ set undofile
 
 " Treat dash separeted words as a text object
 autocmd FileType tex set iskeyword+=-
+" Turn on spell checking in tex files
+autocmd FileType tex setlocal spell spelllang=en_us
 
 " Enable syntax highlighting
 syntax enable
