@@ -187,7 +187,7 @@ autocmd FileType tex set iskeyword+=-
 " Turn on spell checking in tex files
 autocmd FileType tex setlocal spell spelllang=en_us
 " Wrap lines at max 100 columns
-autocmd FileType tex set textwidth=100
+autocmd FileType tex set textwidth=92
 
 " Enable syntax highlighting
 syntax enable
