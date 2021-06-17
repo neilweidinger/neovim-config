@@ -1,6 +1,7 @@
 set nocompatible
 let g:polyglot_disabled = [] " Necessary to put this at very top for some reason (https://github.com/sheerun/vim-polyglot#troubleshooting)
 
+
 " ================ PLUGINS ====================
 
 " Plugins will be downloaded under the specified directory.
@@ -186,7 +187,7 @@ set undofile
 autocmd FileType tex set iskeyword+=-
 " Turn on spell checking in tex files
 autocmd FileType tex setlocal spell spelllang=en_us
-" Wrap lines at max 100 columns
+" Wrap lines when writing latex
 autocmd FileType tex set textwidth=92
 
 " Enable syntax highlighting
@@ -198,6 +199,18 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" When switching buffers, preserve window view.
+if v:version >= 700
+    autocmd BufLeave * call AutoSaveWinView()
+    autocmd BufEnter * call AutoRestoreWinView()
+endif
+
+" Make vim recognize .conf files as the config FileType
+autocmd BufEnter,BufRead *.conf setf config
+
+
+" ================ FUNCTIONS ====================
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()
@@ -220,14 +233,18 @@ function! AutoRestoreWinView()
     endif
 endfunction
 
-" When switching buffers, preserve window view.
-if v:version >= 700
-    autocmd BufLeave * call AutoSaveWinView()
-    autocmd BufEnter * call AutoRestoreWinView()
-endif
+" Function so that scroll amount specified by % of window height, not absolute line amount
+function! ScrollQuarter(move)
+    let height=winheight(0)
 
-" Make vim recognize .conf files as the config FileType
-autocmd BufEnter,BufRead *.conf setf config
+    if a:move == 'up'
+        let key="\<C-Y>"
+    else
+        let key="\<C-E>"
+    endif
+
+    execute 'normal! ' . height/6 . key
+endfunction
 
 
 " ================ MAPPINGS ====================
@@ -239,12 +256,9 @@ nmap <leader>v :edit $MYVIMRC<CR>
 " Reload vimrc
 nmap <leader>sv :source $MYVIMRC<CR>
 
-" Remapping necessary for above function
+" Remapping necessary for scroll amount function
 nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
-nnoremap <silent> <C-e> :call ScrollQuarter('down')<CR>
-
-" Control y now performs control u
-nnoremap <C-y> <C-u>
+nnoremap <silent> <C-d> :call ScrollQuarter('down')<CR>
 
 " Quick jumping between windows
 nnoremap <C-j> <C-W>j
@@ -312,7 +326,7 @@ map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 
 
-" ================ COC.VIM Settings ====================
+" ================ COC.NVIM ====================
 
 let g:coc_global_extensions = [
   \ 'coc-css',
@@ -445,19 +459,3 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
-
-
-" ================ OTHERS ====================
-
-" Function so that control e and y scroll by specified % of window height, not line by line
-function! ScrollQuarter(move)
-    let height=winheight(0)
-
-    if a:move == 'up'
-        let key="\<C-Y>"
-    else
-        let key="\<C-E>"
-    endif
-
-    execute 'normal! ' . height/6 . key
-endfunction
