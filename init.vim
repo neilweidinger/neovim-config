@@ -31,6 +31,7 @@ Plug 'mbbill/undotree' " Undo tree viewer
 Plug 'tpope/vim-obsession' " Automatically save vim sessions so that tmux can restore them when restarting
 Plug 'rust-lang/rust.vim' " Really only used to auto run rustfmt on buffer save
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/vim-slash' " Unhighlight search after moving cursor
 " Icons for tabline, ALWAYS LOAD THIS PLUGIN LAST
 Plug 'ryanoasis/vim-devicons'
 
@@ -289,9 +290,6 @@ nmap <silent> <Leader>c :bd<CR>
 " Move by wrapped line unless a count is specified, in which case it behaves normally
 nnoremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-
-" Press enter to clear highlighting for previous search
-nnoremap <silent> <Leader><CR> :noh<CR>
 
 " Remap joining two lines since J is mapped to switching buffers above
 nnoremap <Leader>J J
