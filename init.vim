@@ -260,6 +260,10 @@ nmap <leader>sv :source $MYVIMRC<CR>
 nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
 nnoremap <silent> <C-d> :call ScrollQuarter('down')<CR>
 
+" Make C-y and C-e perform large scroll jumps (original C-u and C-d behavior)
+nnoremap <silent> <C-y> <C-u>
+nnoremap <silent> <C-e> <C-d>
+
 " Quick jumping between windows
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
