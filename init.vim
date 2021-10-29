@@ -94,6 +94,8 @@ let g:vimtex_view_method="skim"
 set conceallevel=2
 let g:tex_conceal='abdmg'
 let g:tex_flavor = 'latex'
+" Close vimtex quickfix window after resuming editing
+let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 
 " Idk what this really does but it speeds up vim (highlight matching pair was
 " slow)
@@ -189,7 +191,7 @@ autocmd FileType tex set iskeyword+=-
 " Turn on spell checking in tex files
 autocmd FileType tex setlocal spell spelllang=en_us
 " Wrap lines when writing latex
-autocmd FileType tex set textwidth=92
+autocmd FileType tex set textwidth=80
 
 " Enable syntax highlighting
 syntax enable
