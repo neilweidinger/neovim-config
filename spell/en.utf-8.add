@@ -34,3 +34,6 @@ RGB
 boundable
 gauge
 significand
+Raphson
+pipelining
+superscalar
