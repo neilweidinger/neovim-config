@@ -24,7 +24,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense in vim
 Plug 'crusoexia/vim-monokai' " Monokai color theme
 Plug 'jackguo380/vim-lsp-cxx-highlight' " Semantic highlighting for C/C++
 Plug 'liuchengxu/vista.vim' " Tagbar like replacement using LSP
-Plug 'machakann/vim-highlightedyank' " Highlight yanked text
 Plug '/usr/local/opt/fzf' " Add homebrew installed fzf to neovim runtime
 Plug 'junegunn/fzf.vim' " Vim wrapper for fzf
 Plug 'mbbill/undotree' " Undo tree viewer
@@ -38,6 +37,11 @@ Plug 'ryanoasis/vim-devicons'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" To prevent autocmd pileup
+" https://vi.stackexchange.com/q/9455
+augroup NeilAutocmdGroup
+    autocmd!
+augroup END
 
 " ================ COLORS AND THEMES ====================
 
@@ -80,7 +84,10 @@ let g:airline#extensions#obsession#enabled = 0
 function! AirlineInit()
     let g:airline_section_c = '%<%{ObsessionStatus(''TRACKED'', '''')} %f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#%#__accent_bold#%{airline#util#wrap(airline#extensions#coc#get_status(),0)}%#__restore__#'
 endfunction
-autocmd User AirlineAfterInit call AirlineInit()
+autocmd NeilAutocmdGroup User AirlineAfterInit call AirlineInit()
+
+" Use built-in neovim highlight on yank
+autocmd NeilAutocmdGroup TextYankPost * silent! lua vim.highlight.on_yank()
 
 
 " ================ GENERAL CONFIG ====================
@@ -138,7 +145,7 @@ set infercase
 " Ignore case when completing file names and directories
 set wildignorecase
 
-" When upper case character is typed in search, serach becomes case sensitive
+" When upper case character is typed in search, search becomes case sensitive
 set smartcase
 
 " Keeps three lines visible when scrolling and cursor is at edge of window
@@ -147,6 +154,11 @@ set scrolloff=3
 " Set numbers on side and ruler
 set number relativenumber
 set ruler
+
+" Cursorline that automatically disappears when switching windows
+set cursorline
+autocmd NeilAutocmdGroup WinEnter * setlocal cursorline
+autocmd NeilAutocmdGroup WinLeave * setlocal nocursorline
 
 " Open new split panes to right and bottom
 set splitbelow
@@ -186,12 +198,15 @@ set inccommand=split
 " Persistent undo (undo history is preserved after quitting vim and reopening)
 set undofile
 
+" Set default line wrapping to 100 characters
+set textwidth=100
+
 " Treat dash separeted words as a text object
-autocmd FileType tex set iskeyword+=-
+autocmd NeilAutocmdGroup FileType tex set iskeyword+=-
 " Turn on spell checking in tex files
-autocmd FileType tex setlocal spell spelllang=en_us
+autocmd NeilAutocmdGroup FileType tex setlocal spell spelllang=en_us
 " Wrap lines when writing latex
-autocmd FileType tex set textwidth=80
+autocmd NeilAutocmdGroup FileType tex set textwidth=80
 
 " Enable syntax highlighting
 syntax enable
@@ -205,12 +220,12 @@ augroup END
 
 " When switching buffers, preserve window view.
 if v:version >= 700
-    autocmd BufLeave * call AutoSaveWinView()
-    autocmd BufEnter * call AutoRestoreWinView()
+    autocmd NeilAutocmdGroup BufLeave * call AutoSaveWinView()
+    autocmd NeilAutocmdGroup BufEnter * call AutoRestoreWinView()
 endif
 
 " Make vim recognize .conf files as the config FileType
-autocmd BufEnter,BufRead *.conf setf config
+autocmd NeilAutocmdGroup BufEnter,BufRead *.conf setf config
 
 
 " ================ FUNCTIONS ====================
@@ -249,6 +264,26 @@ function! ScrollQuarter(move)
     execute 'normal! ' . height/6 . key
 endfunction
 
+function! SaveClosedWindow()
+    let g:closedBuffer = bufname()
+endfunction
+
+function! ReopenClosedWindow()
+    let result = input("Open ". g:closedBuffer . " in (n)ormal (v)split, or (s)plit ? (n/v/s) : ")
+
+    if empty(result) || (result !=# 'v' && result !=# 's' && result !=# 'n')
+        return
+    endif
+
+    if result ==# 'v'
+        execute "vsplit"
+    elseif result ==# 's'
+        execute "split"
+    endif
+
+    execute 'b ' . g:closedBuffer
+endfunction
+
 
 " ================ MAPPINGS ====================
 
@@ -262,6 +297,10 @@ nmap <leader>sv :source $MYVIMRC<CR>
 " Remapping necessary for scroll amount function
 nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
 nnoremap <silent> <C-d> :call ScrollQuarter('down')<CR>
+
+" Open most recently closed buffer
+autocmd NeilAutocmdGroup WinClosed * call SaveClosedWindow()
+nnoremap <silent> <leader><C-t> :call ReopenClosedWindow() <CR>
 
 " Quick jumping between windows
 nnoremap <C-j> <C-W>j
@@ -421,7 +460,7 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 nnoremap <silent> ;; :Vista!!<CR>
 
 " Automatically close Vista window if source window is closed
-autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "normal! :q!\<CR>" | endif
+autocmd NeilAutocmdGroup bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "normal! :q!\<CR>" | endif
 
 
 " ================ FZF.VIM ====================
@@ -442,7 +481,7 @@ nmap <Leader>H :Helptags<CR>
 nmap <Leader>g :Rg<CR>
 
 " Exit out of fzf buffer faster when using the escape key
-autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+autocmd! NeilAutocmdGroup FileType fzf tnoremap <buffer> <esc> <c-c>
 
 " Key bindings to open fzf result in horizontal or vertical split
 let g:fzf_action = {
