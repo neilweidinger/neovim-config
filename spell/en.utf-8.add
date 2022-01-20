@@ -37,3 +37,6 @@ significand
 Raphson
 pipelining
 superscalar
+outdegree
+interleavings
+runtime
