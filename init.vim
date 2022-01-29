@@ -298,6 +298,16 @@ nmap <leader>sv :source $MYVIMRC<CR>
 nnoremap <silent> <C-u> :call ScrollQuarter('up')<CR>
 nnoremap <silent> <C-d> :call ScrollQuarter('down')<CR>
 
+" Allow for easy cursor movement in insert mode
+" Need to first disable <C-h> mapping from AutoPairs plugin, since plugins are loaded after .vimrc
+" and AutoPairs by default defines a <C-h> mapping
+" See mappings for a key binding in insert mode: verbose imap <C-h>
+let g:AutoPairsMapCh = 0
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
 " Open most recently closed buffer
 autocmd NeilAutocmdGroup WinClosed * call SaveClosedWindow()
 nnoremap <silent> <leader><C-t> :call ReopenClosedWindow() <CR>
