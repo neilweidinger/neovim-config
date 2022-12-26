@@ -104,6 +104,18 @@ let g:tex_flavor = 'latex'
 " Close vimtex quickfix window after resuming editing
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 
+" Used to pass the `-shell-escape` option to latexmk, needed for Latex minted
+" package (for dissertation)
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-shell-escape',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
 " Idk what this really does but it speeds up vim (highlight matching pair was
 " slow)
 " let g:loaded_matchparen=20
@@ -201,8 +213,11 @@ set undofile
 " Set default line wrapping to 100 characters
 set textwidth=100
 
-" Treat dash separeted words as a text object
+" Treat dash separated words as a text object
 autocmd NeilAutocmdGroup FileType tex set iskeyword+=-
+" Treat colon separeted words as a text object (I really don't know why this is
+" subtractive vs additive for dash's)
+autocmd NeilAutocmdGroup FileType tex set iskeyword-=:
 " Turn on spell checking in tex files
 autocmd NeilAutocmdGroup FileType tex setlocal spell spelllang=en_us
 " Wrap lines when writing latex
